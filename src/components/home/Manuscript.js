@@ -19,6 +19,7 @@ const Icon = styled.div`
 const LogoBg = styled.div`
     background: url("./images/logo.png")center center no-repeat;
     width: 100%; height: 700px;
+    margin: 0 auto;
 `
 const GridContainer = styled.div`
     display: grid;
@@ -34,13 +35,17 @@ const GridContainer = styled.div`
     left: 0;
     right: 0;
     background-color: #fff;
+    position: relative;
     @media screen and (max-width: 1024px){
         width: 525px;
+        height: 350px;
         font-size: 24px;
         grid-template-rows: repeat(10, 35px);
         grid-template-columns: repeat(15, 35px);
+        overflow: hidden;
     }
     @media screen and (max-width: 640px){
+        margin: -200px auto 0;
         width: 300px;
         font-size: 16px;
         grid-template-rows: repeat(20, 30px);
@@ -55,10 +60,26 @@ const Circle = styled.div`
     background-color: #fff;
     box-shadow: 0 0 7px #fff, 0 0 10px #eee, 0 0 21px #fff;
     border-radius: 50%;
-    width: 120px; height: 120px;
+    width: 100px; height: 100px;
     left: 80%; top: 80%;
     position: absolute;
     filter:blur(1.5px);
+    @media screen and (max-width: 1024px){
+        width: 70px; height: 70px;
+    }
+    @media screen and (max-width: 1024px){
+        width: 40px; height: 40px;
+    }
+`
+const CircleBig = styled(Circle)`
+    width: 140px; height: 140px;
+    left: 0; top: 40%;
+    @media screen and (max-width: 1024px){
+        width: 100px; height: 100px;
+    }
+    @media screen and (max-width: 1024px){
+        width: 50px; height: 50px;
+    }
 `
 function Manuscript() {
 
@@ -77,7 +98,6 @@ function Manuscript() {
                 {rows.map((_, rowIndex) =>
                     columns.map((_, colIndex) => {
                         let content = "";
-
                         textContent.forEach(item => {
                             if (rowIndex === item.startRow && colIndex >= item.startColumn 
                                 && colIndex < item.startColumn + item.letters.length) {
@@ -92,7 +112,8 @@ function Manuscript() {
                     })
                 )}
                 <Circle />
-                <Circle style={{ top: '60%', left: '-5%', width: '150px', height: '150px' }}/>
+                {/* <Circle style={{ top: '60%', left: '-5%', width: '150px', height: '150px' }}/> */}
+                <CircleBig />
             </GridContainer>
         </ContentWrap>
     </>

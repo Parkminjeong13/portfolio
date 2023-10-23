@@ -2,11 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 
 const NavBg = styled.div`
-    width: 50px;
+    width: 40px;
     height: 100%;
     background-color: #333;
     position: fixed;
     z-index: 100;
+    @media screen and (max-width: 1024px){
+      width: 0;
+    }
 `
 const ContentWrap = styled.ul``
 const Title = styled.li`
@@ -24,9 +27,6 @@ function Nav() {
 
     const nav = [
         {
-            "title": "Home"
-        },
-        {
             "title": "About"
         },
         {
@@ -40,13 +40,13 @@ function Nav() {
     <>
         <NavBg>
             <ContentWrap>
-                {
+                {/* {
                     nav.map((e,i)=>{
                         return (
                             <Title>{e.title}</Title>
                         )
                     })
-                }
+                } */}
             </ContentWrap>
         </NavBg>
     </>
