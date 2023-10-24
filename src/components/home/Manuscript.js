@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const ContentWrap = styled.div`
+    padding-left: 120px;
     position: relative;
     width: 1000px;
     margin: 0 auto;
@@ -23,17 +24,13 @@ const LogoBg = styled.div`
 `
 const GridContainer = styled.div`
     display: grid;
-    width: 1000px;
+    width: 900px;
     margin: -100px auto 0;
-    grid-template-rows: repeat(10, 50px);
-    grid-template-columns: repeat(20, 50px);
+    grid-template-rows: repeat(10, 42px);
+    grid-template-columns: repeat(20, 42px);
     grid-row-gap: 10px;
     font-size: 30px;
     text-align: center;
-    /* position: absolute;  */
-    top: calc(100% - 200px);
-    left: 0;
-    right: 0;
     background-color: #fff;
     position: relative;
     @media screen and (max-width: 1024px){
@@ -67,7 +64,7 @@ const Circle = styled.div`
     @media screen and (max-width: 1024px){
         width: 70px; height: 70px;
     }
-    @media screen and (max-width: 1024px){
+    @media screen and (max-width: 640px){
         width: 40px; height: 40px;
     }
 `
@@ -77,7 +74,7 @@ const CircleBig = styled(Circle)`
     @media screen and (max-width: 1024px){
         width: 100px; height: 100px;
     }
-    @media screen and (max-width: 1024px){
+    @media screen and (max-width: 640px){
         width: 50px; height: 50px;
     }
 `

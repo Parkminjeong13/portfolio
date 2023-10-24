@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 
 const ContentWrap = styled.div`
+    padding-left: 120px;
     display: flex;
-    width: 1200px;
+    width: 1000px;
     margin: 100px auto;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -13,20 +14,23 @@ const ContentWrap = styled.div`
 `
 const Picture = styled.div`
     background: url("https://via.placeholder.com/600");
-    flex-basis: 35%;
+    width: 400px;
     @media screen and (max-width: 1024px){
-        flex-basis: 100%;
+        width : 450px;
         height: 400px;
         margin: 0 auto;
     }
     @media screen and (max-width: 640px){
-        flex-basis: 100%;
+        width: 300px;
     }
 `
 const DescWrap = styled.div`
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     flex-basis: 55%;
     @media screen and (max-width: 1024px){
-        margin: 0 auto;
+        margin: 50px auto;
     }
     @media screen and (max-width: 640px){
         width: 360px;
@@ -43,7 +47,6 @@ const Title = styled.div`
         margin-bottom: 30px;
     }
     @media screen and (max-width: 1024px){
-        text-align: center;
         h3{
             font-size: 30px;
         }
@@ -74,7 +77,7 @@ const Skill = styled.li`
       
     }
     @media screen and (max-width: 640px){
-      width: 90px;
+        width: 90px;
     }
 `
 const Desc = styled.div`
@@ -133,13 +136,11 @@ function About() {
                 </Title>
                 <SkillWrap>
                     {skill.map((e,i)=>{
-                        return (
-                            <>                            
-                                <Skill key={i} onClick={()=>{setIsActive(i)}}>
-                                    <div style={{ backgroundImage: `url(${e.img})`, backgroundSize: 'cover' }}></div>
-                                    <span>{e.title}</span>
-                                </Skill>                                
-                            </>
+                        return (                      
+                            <Skill key={i} onClick={()=>{setIsActive(i)}}>
+                                <div style={{ backgroundImage: `url(${e.img})`, backgroundSize: 'cover' }}></div>
+                                <span>{e.title}</span>
+                            </Skill> 
                         )
                     })}
                 </SkillWrap>                
