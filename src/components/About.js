@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 
 const ContentWrap = styled.div`
-    padding-left: 120px;
+    padding-left: 100px;
+    box-sizing: border-box;
     display: flex;
     width: 1000px;
     margin: 100px auto;
@@ -11,17 +12,20 @@ const ContentWrap = styled.div`
     @media screen and (max-width: 1024px){
       width: 90%;
     }
+    @media screen and (max-width: 640px){
+      padding-left: 0;
+    }
 `
 const Picture = styled.div`
     background: url("https://via.placeholder.com/600");
-    width: 400px;
+    flex-basis: 35%;
     @media screen and (max-width: 1024px){
-        width : 450px;
+        flex-basis : 70%;
         height: 400px;
         margin: 0 auto;
     }
     @media screen and (max-width: 640px){
-        width: 300px;
+        flex-basis: 70%;
     }
 `
 const DescWrap = styled.div`
@@ -30,20 +34,21 @@ const DescWrap = styled.div`
     flex-wrap: wrap;
     flex-basis: 55%;
     @media screen and (max-width: 1024px){
+        flex-basis: 80%;
         margin: 50px auto;
     }
     @media screen and (max-width: 640px){
-        width: 360px;
+        flex-basis: 80%;
         margin: 50px auto;
     }
 `
 const Title = styled.div`
     h3{
-        font-size: 40px;
+        font-size: 36px;
         margin-bottom: 30px;
     }
     p{
-        font-size: 24px;
+        font-size: 20px;
         margin-bottom: 30px;
     }
     @media screen and (max-width: 1024px){
@@ -59,7 +64,7 @@ const SkillWrap = styled.ul`
     display: flex;
 `
 const Skill = styled.li`
-    width: 70px; height: 70px;
+    width: 55px; height: 55px;
     border: 1px solid #ddd;
     box-sizing: border-box;
     margin-right: 10px;
@@ -70,28 +75,30 @@ const Skill = styled.li`
     align-items: center;
     cursor: pointer;
     div{
-        width: 40px; height: 40px;
+        width: 32px; height: 32px;
     }
-    span{font-size: 14px;}
+    span{font-size: 12px;}
     @media screen and (max-width: 1024px){
-      
+        width: 60px; height: 60px;
+        div{width: 35px; height: 35px;}
+        span{font-size: 13px;}
     }
     @media screen and (max-width: 640px){
-        width: 90px;
+        
     }
 `
 const Desc = styled.div`
-    font-size: 20px;
+    font-size: 18px;
     color: #aaa;
     margin-top: 20px;
-    height: 70px;
+    height: 50px;
     @media screen and (max-width: 1024px){
         font-size: 16px;
     }
 `
 const Education = styled.div`
-    margin: 20px 0;
-    h3{font-size: 40px; margin: 30px 0;}
+    margin-bottom: 20px;
+    h3{font-size: 36px; margin: 30px 0;}
     p{margin-bottom: 10px;}
 `
 function About() {
@@ -115,6 +122,11 @@ function About() {
             "desc": "동적 인터랙션 제공 : 버튼 클릭 시 팝업창 나타내기나 드롭다운 메뉴 구현 같은 동적 인터랙션이 가능합니다."
         },
         {
+            "img": "./images/icons/tailwindcss.png",
+            "title": "tailwind",
+            "desc": "tailwind 설명"
+        },
+        {
             "img": "./images/icons/react.png",
             "title": "react",
             "desc": "react 설명"
@@ -123,7 +135,12 @@ function About() {
             "img": "./images/icons/github.png",
             "title": "git",
             "desc": "git 설명"
-        }
+        },
+        {
+            "img": "./images/icons/notion.png",
+            "title": "notion",
+            "desc": "notion 설명"
+        },
     ]
   return (
     <>

@@ -2,12 +2,15 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 
 const BgWrap = styled.div`
-    padding-left: 120px;
-    box-sizing: border-box;
+    padding-left: 100px;
     width: 1000px;
+    box-sizing: border-box;
     margin: 50px auto;
     @media screen and (max-width: 1024px){
         width: 90%;
+    }
+    @media screen and (max-width: 640px){
+        padding-left: 0;
     }
 `
 const ListbtnWrap = styled.div`
@@ -54,7 +57,7 @@ const Card = styled.div`
     margin-bottom: 30px;
     @media screen and (max-width: 1024px){
         flex-direction: ${props => props.$isVertical ? "column" : 'row'};
-        flex-basis: ${props => props.$isVertical ? "49%" : '100%'};
+        flex-basis: ${props => props.$isVertical ? "48%" : '100%'};
     }
     @media screen and (max-width: 640px){
         flex-direction: column;
@@ -63,29 +66,25 @@ const Card = styled.div`
 `
 const ContentImg = styled.div`
   width: ${props => props.$isVertical ? '100%' : '50%'};
-  height: 220px;
+  height: ${props => props.$isVertical ? '150px' : '100%'};
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   order: ${props => props.$isVertical ? '1' : (props.index % 2 === 0 ? '2' : '1')};
   @media screen and (max-width: 1024px){
-      /* order: ${props => props.index % 2 === 0 ? '1' : '2'}; */
-      /* width: 50%; */
+      height: ${props => props.$isVertical ? '200px' : '100%'};
   }
   @media screen and (max-width: 640px){
       order: 1;
       width: 100%;
+      height: 200px;
   }
 `
 const Desc = styled.div`
-  padding: 50px;
+  padding: 30px;
   width: ${props => !props.$isVertical && '50%'};
   h3{margin-bottom: 20px}
   order: ${props => props.$isVertical ? '2' : (props.index %2 ===0 ? '1' : '2')};
-  @media screen and (max-width: 1024px){
-      /* order:${props => props.index %2 ===0 ? '2' : '1'}; */
-      /* width: 50%; */
-  }
   @media screen and (max-width: 640px){
       order: 2;
       margin: 0 auto;
@@ -111,15 +110,26 @@ function Portfolio() {
       "desc": "Megabox 클론코딩 사이트입니다.",
       "skill": "html/css/javascript",
       "contribution": "100%",
-      "period": "14일"      
+      "period": "14일",
+      "type": "clone"      
     },    
     {
       "img": "./images/parcel.png",
       "title": "Parcel",
       "desc": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "skill": "React",
+      "contribution": "100%",
+      "period": "1일",
+      "type": "React"       
+    },
+    {
+      "img": "./images/subway.png",
+      "title": "Subway",
+      "desc": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "skill": "html/css/javascript",
       "contribution": "100%",
-      "period": "1일"       
+      "period": "1일",
+      "type": "clone"       
     },
   ]
   return (
