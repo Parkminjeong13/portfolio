@@ -1,16 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
 const ContentWrap = styled.div`
     padding-left: 100px;
     box-sizing: border-box;
     position: relative;
-    width: 1000px;
+    width: 90%;
     margin: 0 auto;
     @media screen and (max-width: 1024px){
-        width: 90%;
+        width: 95%;
     }
     @media screen and (max-width: 640px){
+        width: 80%;
         padding-left: 0;
     }
 `
@@ -36,11 +37,11 @@ const GridContainer = styled.div`
     background-color: #fff;
     position: relative;
     @media screen and (max-width: 1024px){
-        width: 480px;
-        height: 375px;
+        width: 495px;
+        height: 340px;
         font-size: 24px;
-        grid-template-rows: repeat(10, 32px);
-        grid-template-columns: repeat(15, 32px);
+        grid-template-rows: repeat(10, 33px);
+        grid-template-columns: repeat(15, 33px);
         overflow: hidden;
     }
     @media screen and (max-width: 640px){
@@ -81,7 +82,7 @@ const CircleBig = styled(Circle)`
         width: 50px; height: 50px;
     }
 `
-function Manuscript() {
+function Manuscript({myRef}) {
 
     const rows = Array.from({length:10});
     const columns = Array.from({length:20});
@@ -91,7 +92,7 @@ function Manuscript() {
     ]
   return (
     <>
-        <ContentWrap>
+        <ContentWrap ref={myRef}>
             <Icon />
             <LogoBg />
             <GridContainer>

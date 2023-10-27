@@ -5,19 +5,20 @@ const ContentWrap = styled.div`
     padding-left: 100px;
     box-sizing: border-box;
     display: flex;
-    width: 1000px;
+    width: 90%;
     margin: 100px auto;
     justify-content: space-between;
     flex-wrap: wrap;
     @media screen and (max-width: 1024px){
-      width: 90%;
+        width: 95%;
     }
     @media screen and (max-width: 640px){
-      padding-left: 0;
+        width: 80%;
+        padding-left: 0;
     }
 `
 const Picture = styled.div`
-    background: url("https://via.placeholder.com/600");
+    background: url("./images/sketch.png")center center no-repeat;
     flex-basis: 35%;
     @media screen and (max-width: 1024px){
         flex-basis : 70%;
@@ -33,13 +34,15 @@ const DescWrap = styled.div`
     flex-direction: column;
     flex-wrap: wrap;
     flex-basis: 55%;
+    margin: 0 auto;
     @media screen and (max-width: 1024px){
-        flex-basis: 80%;
+        flex-basis: 75%;
         margin: 50px auto;
     }
     @media screen and (max-width: 640px){
         flex-basis: 80%;
         margin: 50px auto;
+        text-align: center;
     }
 `
 const Title = styled.div`
@@ -62,12 +65,17 @@ const Title = styled.div`
 `
 const SkillWrap = styled.ul`
     display: flex;
+    flex-wrap: wrap;
+    @media screen and (max-width: 640px){
+        justify-content: center;
+    }
 `
 const Skill = styled.li`
     width: 55px; height: 55px;
     border: 1px solid #ddd;
     box-sizing: border-box;
     margin-right: 10px;
+    margin-bottom: 10px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -101,7 +109,7 @@ const Education = styled.div`
     h3{font-size: 36px; margin: 30px 0;}
     p{margin-bottom: 10px;}
 `
-function About() {
+function About({myRef}) {
     
     const [isActive, setIsActive] = useState(0);
 
@@ -144,7 +152,7 @@ function About() {
     ]
   return (
     <>
-        <ContentWrap>
+        <ContentWrap ref={myRef}>
             <Picture />
             <DescWrap>
                 <Title>

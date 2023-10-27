@@ -3,13 +3,14 @@ import styled from 'styled-components'
 
 const BgWrap = styled.div`
     padding-left: 100px;
-    width: 1000px;
+    width: 90%;
     box-sizing: border-box;
     margin: 50px auto;
     @media screen and (max-width: 1024px){
-        width: 90%;
+        width: 95%;
     }
     @media screen and (max-width: 640px){
+        width: 80%;
         padding-left: 0;
     }
 `
@@ -54,7 +55,8 @@ const Card = styled.div`
     flex-basis: ${props => props.$isVertical ? '32.5%' : '100%'};
     border: 1px solid #ddd;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
+    box-sizing: border-box;
     @media screen and (max-width: 1024px){
         flex-direction: ${props => props.$isVertical ? "column" : 'row'};
         flex-basis: ${props => props.$isVertical ? "48%" : '100%'};
@@ -66,13 +68,13 @@ const Card = styled.div`
 `
 const ContentImg = styled.div`
   width: ${props => props.$isVertical ? '100%' : '50%'};
-  height: ${props => props.$isVertical ? '150px' : '100%'};
+  height: ${props => props.$isVertical ? '240px' : '100%'};
   background-size: cover;
-  background-position: center center;
+  background-position: center;
   background-repeat: no-repeat;
   order: ${props => props.$isVertical ? '1' : (props.index % 2 === 0 ? '2' : '1')};
   @media screen and (max-width: 1024px){
-      height: ${props => props.$isVertical ? '200px' : '100%'};
+      
   }
   @media screen and (max-width: 640px){
       order: 1;
@@ -81,19 +83,26 @@ const ContentImg = styled.div`
   }
 `
 const Desc = styled.div`
-  padding: 30px;
+  padding: ${props => props.$isVertical ? '30px' : '70px 50px'};
   width: ${props => !props.$isVertical && '50%'};
-  h3{margin-bottom: 20px}
   order: ${props => props.$isVertical ? '2' : (props.index %2 ===0 ? '1' : '2')};
+  margin: 20px auto;
+  h3{margin-bottom: 30px}
+  p{margin-top: 10px}
+  @media screen and (max-width: 1024px){
+      padding: 50px 30px;
+  }
   @media screen and (max-width: 640px){
       order: 2;
       margin: 0 auto;
   }
 `
-function Portfolio() {
+function Portfolio({myRef}) {
 
   const [isVertical, setIsVertical] = useState(true);
   const [isClick, setIsClick] = useState(-1);
+
+  
   const data = [
     {
       "img": "./images/teamprojectMain.png",
@@ -116,7 +125,7 @@ function Portfolio() {
     {
       "img": "./images/parcel.png",
       "title": "Parcel",
-      "desc": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "desc": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "skill": "React",
       "contribution": "100%",
       "period": "1일",
@@ -134,13 +143,13 @@ function Portfolio() {
   ]
   return (
     <>
-        <BgWrap>
+        <BgWrap ref={myRef}>
             <ListbtnWrap>
-              <Horizontal className={!isVertical && 'on'} $isVertical={isVertical} onClick={()=>{setIsVertical(false)}}>
+              <Horizontal title={"가로"} className={!isVertical && 'on'} $isVertical={isVertical} onClick={()=>{setIsVertical(false)}}>
                 <div></div>
                 <div></div>
               </Horizontal>
-              <Vertical className={isVertical && 'on'}onClick={()=>{setIsVertical(true)}}>
+              <Vertical title={"세로"} className={isVertical && 'on'}onClick={()=>{setIsVertical(true)}}>
                 <div></div>
                 <div></div>
               </Vertical>

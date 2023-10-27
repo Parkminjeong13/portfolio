@@ -28,25 +28,35 @@ const Title = styled.li`
     height: 50px;
     padding: 10px;
     margin-top: 20px;
-    border: thick double red;
+    border: ${props => props.$isActive ? 'thick double white' : 'thick double red'};
     background-color: #fff;
     box-sizing: border-box;
     border-radius: 5px;
-
+    p{
+        background: ${props => props.$isActive ? 'linear-gradient(to top, #ddd 40%, transparent 40%);' : '#fff'};
+    }
 `
-function Nav() {
+function Nav({navRefs}) {
     
     const [isActive, setIsActive] = useState(-1);
 
     const nav = [
         {
-            "title": "About"
+            "title": "Home",
+            "img": "./images/book.png",
+            "ref": navRefs.home
         },
         {
-            "title": "Portfolio"
+            "title": "About",
+            "ref": navRefs.about
         },
         {
-            "title": "Contact"
+            "title": "Portfolio",
+            "ref": navRefs.portfolio
+        },
+        {
+            "title": "Contact",
+            "ref": navRefs.contact
         },
     ]
   return (
@@ -56,7 +66,9 @@ function Nav() {
                 {
                     nav.map((e,i)=>{
                         return (
-                            <Title key={i} $isActive={isActive === i} onClick={()=>{setIsActive(i)}}>{e.title}</Title>
+                            <Title key={i} $isActive={isActive === i} onClick={()=>{setIsActive(i); e.ref.current.scrollIntoView({ behavior: 'smooth' }); }}>
+                                <p>{e.title}</p>
+                            </Title>
                         )
                     })
                 }
