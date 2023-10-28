@@ -125,7 +125,7 @@ function Portfolio({myRef}) {
     {
       "img": "./images/parcel.png",
       "title": "Parcel",
-      "desc": "택배 조회 페이지입니다. ",
+      "desc": "택배 조회 페이지입니다.",
       "skill": "TypeScript, React",
       "contribution": "100%",
       "period": "1일",
