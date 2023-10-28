@@ -20,7 +20,7 @@ const Icon = styled.div`
     width: 100%; height: 100px;
 `
 const LogoBg = styled.div`
-    background: url("./images/logobold.png")center center no-repeat;
+    background: url("./images/logo.png")center center no-repeat;
     width: 100%; height: 700px;
     margin: 0 auto;
     filter: blur(10px);
