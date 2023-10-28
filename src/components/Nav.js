@@ -42,11 +42,6 @@ function Nav({navRefs}) {
 
     const nav = [
         {
-            "title": "Home",
-            "img": "./images/book.png",
-            "ref": navRefs.home
-        },
-        {
             "title": "About",
             "ref": navRefs.about
         },

@@ -127,7 +127,7 @@ function About({myRef}) {
         {
             "img": "./images/icons/javascript.png",
             "title": "javascript",
-            "desc": "동적 인터랙션 제공 : 버튼 클릭 시 팝업창 나타내기나 드롭다운 메뉴 구현 같은 동적 인터랙션이 가능합니다."
+            "desc": "버튼 클릭 시 팝업창 나타내기나 드롭다운 메뉴 구현 같은 동적 인터랙션이 가능합니다."
         },
         {
             "img": "./images/icons/tailwindcss.png",
