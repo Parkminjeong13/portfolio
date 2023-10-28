@@ -72,7 +72,7 @@ const ContentImg = styled.div`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  order: ${props => props.$isVertical ? '1' : (props.index % 2 === 0 ? '2' : '1')};
+  order: ${props => props.$isVertical ? '1' : (props.$index % 2 === 0 ? '2' : '1')};
   @media screen and (max-width: 1024px){
       
   }
@@ -85,7 +85,7 @@ const ContentImg = styled.div`
 const Desc = styled.div`
   padding: ${props => props.$isVertical ? '30px' : '70px 50px'};
   width: ${props => !props.$isVertical && '50%'};
-  order: ${props => props.$isVertical ? '2' : (props.index %2 ===0 ? '1' : '2')};
+  order: ${props => props.$isVertical ? '2' : (props.$index %2 ===0 ? '1' : '2')};
   margin: 20px auto;
   h3{margin-bottom: 30px}
   p{margin-top: 10px}
@@ -107,7 +107,7 @@ function Portfolio({myRef}) {
     {
       "img": "./images/teamprojectMain.png",
       "title": "Hello Vanilla",
-      "desc": "Team Project 사이트입니다.",
+      "desc": "초보 개발자들이 재미있고 간편하게 바닐라 스크립트를 학습할 수 있도록 지원하는 교육 커뮤니티 플랫폼 사이트입니다. 사용자들의 활발한 소통을 지원하고자 다양한 댓글 기능을 구현하였습니다.",
       "skill": "html/css/javascript/react",
       "contribution": "20%",
       "period": "30일",
@@ -116,7 +116,7 @@ function Portfolio({myRef}) {
     {
       "img": "./images/megabox-main.png",
       "title": "Megabox",
-      "desc": "Megabox 클론코딩 사이트입니다.",
+      "desc": "Megabox 클론코딩 페이지입니다.",
       "skill": "html/css/javascript",
       "contribution": "100%",
       "period": "14일",
@@ -125,8 +125,8 @@ function Portfolio({myRef}) {
     {
       "img": "./images/parcel.png",
       "title": "Parcel",
-      "desc": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "skill": "React",
+      "desc": "택배 조회 페이지입니다. ",
+      "skill": "TypeScript, React",
       "contribution": "100%",
       "period": "1일",
       "type": "React"       
@@ -134,7 +134,7 @@ function Portfolio({myRef}) {
     {
       "img": "./images/subway.png",
       "title": "Subway",
-      "desc": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "desc": "Subway 클론 코딩 페이지입니다.",
       "skill": "html/css/javascript",
       "contribution": "100%",
       "period": "1일",
@@ -159,8 +159,8 @@ function Portfolio({myRef}) {
                 data.map((e,i)=>{
                   return (
                     <Card key={i} $isVertical={isVertical}>
-                      <ContentImg index={i} $isVertical={isVertical} style={{ backgroundImage: `url(${e.img})`}}/>
-                      <Desc index={i} $isVertical={isVertical}>
+                      <ContentImg $index={i} $isVertical={isVertical} style={{ backgroundImage: `url(${e.img})`}}/>
+                      <Desc $index={i} $isVertical={isVertical}>
                         <h3>{e.title}</h3>
                         <p>{e.desc}</p>
                         <p>소요기간 : {e.period}</p>
