@@ -7,6 +7,7 @@ const NavBg = styled.div`
     background-color: #333;
     position: fixed;
     z-index: 100;
+    top: 0;
     @media screen and (max-width: 640px){
         display: none;
     }
@@ -32,8 +33,10 @@ const Title = styled.li`
     background-color: #fff;
     box-sizing: border-box;
     border-radius: 5px;
+    cursor: pointer;
     p{
-        background: ${props => props.$isActive ? 'linear-gradient(to top, #ddd 40%, transparent 40%);' : '#fff'};
+        display: inline-block;
+        background: ${props => props.$isActive ? 'linear-gradient(to top, #FFD84B 40%, transparent 40%);' : '#fff'};
     }
 `
 function Nav({navRefs}) {
@@ -41,11 +44,6 @@ function Nav({navRefs}) {
     const [isActive, setIsActive] = useState(-1);
 
     const nav = [
-        {
-            "title": "Home",
-            "img": "./images/book.png",
-            "ref": navRefs.home
-        },
         {
             "title": "About",
             "ref": navRefs.about

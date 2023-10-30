@@ -6,7 +6,7 @@ const ContentWrap = styled.div`
     box-sizing: border-box;
     display: flex;
     width: 90%;
-    margin: 100px auto;
+    margin: 150px auto;
     justify-content: space-between;
     flex-wrap: wrap;
     @media screen and (max-width: 1024px){
@@ -19,11 +19,12 @@ const ContentWrap = styled.div`
 `
 const Picture = styled.div`
     background: url("./images/sketch.png")center center no-repeat;
-    flex-basis: 35%;
+    background-size: contain;
+    flex-basis: 50%;
     @media screen and (max-width: 1024px){
         flex-basis : 70%;
         height: 400px;
-        margin: 0 auto;
+        margin: 30px auto;
     }
     @media screen and (max-width: 640px){
         flex-basis: 70%;
@@ -33,26 +34,25 @@ const DescWrap = styled.div`
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    flex-basis: 55%;
+    flex-basis: 50%;
     margin: 0 auto;
     @media screen and (max-width: 1024px){
-        flex-basis: 75%;
+        flex-basis: 100%;
         margin: 50px auto;
     }
     @media screen and (max-width: 640px){
-        flex-basis: 80%;
-        margin: 50px auto;
         text-align: center;
     }
 `
 const Title = styled.div`
+    margin: 70px 0 20px;
     h3{
         font-size: 32px;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
     }
     p{
         font-size: 18px;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
     }
     @media screen and (max-width: 1024px){
         h3{
@@ -66,16 +66,17 @@ const Title = styled.div`
 const SkillWrap = styled.ul`
     display: flex;
     flex-wrap: wrap;
-    margin: 10px 0;
+    gap: 5px;
     @media screen and (max-width: 640px){
-        justify-content: center;
+        gap: 2%;
     }
 `
 const Skill = styled.li`
-    width: 55px; height: 55px;
+    width: 55px; 
+    aspect-ratio: 1 / 1;
     border: 1px solid #ddd;
     box-sizing: border-box;
-    margin-right: 10px;
+    /* margin-right: 10px; */
     margin-bottom: 10px;
     text-align: center;
     display: flex;
@@ -93,23 +94,17 @@ const Skill = styled.li`
         span{font-size: 13px;}
     }
     @media screen and (max-width: 640px){
-        
+        width: 50px; height: 50px;
+        div{width: 30px; height: 30px;}
+        span{font-size: 12px;}
     }
 `
-const Desc = styled.div`
-    font-size: 18px;
+const Desc = styled(Title)`
     color: #aaa;
-    margin-bottom: 20px;
-    height: 50px;
-    @media screen and (max-width: 1024px){
-        font-size: 16px;
-    }
+    height: 40px;
+    margin: 15px 0;
 `
-const Education = styled(Title)`
-    /* margin-bottom: 20px;
-    h3{font-size: 36px; margin: 30px 0;}
-    p{margin-bottom: 10px;} */
-`
+const Education = styled(Title)``
 function About({myRef}) {
     
     const [isActive, setIsActive] = useState(0);
@@ -128,7 +123,7 @@ function About({myRef}) {
         {
             "img": "./images/icons/javascript.png",
             "title": "javascript",
-            "desc": "동적 인터랙션 제공 : 버튼 클릭 시 팝업창 나타내기나 드롭다운 메뉴 구현 같은 동적 인터랙션이 가능합니다."
+            "desc": "버튼 클릭 시 팝업창 나타내기나 드롭다운 메뉴 구현 같은 동적 인터랙션이 가능합니다."
         },
         {
             "img": "./images/icons/tailwindcss.png",
@@ -157,7 +152,7 @@ function About({myRef}) {
             <Picture />
             <DescWrap>
                 <Title>
-                    <h3>민정</h3>
+                    <h3>About</h3>
                     <p>"언어를 사랑하는 개발자 박민정입니다."</p>
                 </Title>
                 <SkillWrap>
@@ -171,7 +166,9 @@ function About({myRef}) {
                     })}
                 </SkillWrap>                
                 <Desc>
-                    {isActive !== -1 && skill[isActive].desc}
+                    <p>
+                        {isActive !== -1 && skill[isActive].desc}
+                    </p>
                 </Desc>
                 <Education>
                     <h3>Education</h3>

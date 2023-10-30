@@ -9,9 +9,9 @@ import styled from "styled-components";
 
 const TopButton = styled.button`
   position: fixed;
-  right: 20px;
-  bottom: 20px;
-  padding: 10px;
+  right: 25px;
+  bottom: 25px;
+  padding: 15px;
   font-size: 20px;
   border-radius: 5px;
   background-color: #fff;
