@@ -47,12 +47,12 @@ const DescWrap = styled.div`
 `
 const Title = styled.div`
     h3{
-        font-size: 36px;
-        margin-bottom: 30px;
+        font-size: 32px;
+        margin-bottom: 10px;
     }
     p{
-        font-size: 20px;
-        margin-bottom: 30px;
+        font-size: 18px;
+        margin-bottom: 10px;
     }
     @media screen and (max-width: 1024px){
         h3{
@@ -66,6 +66,7 @@ const Title = styled.div`
 const SkillWrap = styled.ul`
     display: flex;
     flex-wrap: wrap;
+    margin: 10px 0;
     @media screen and (max-width: 640px){
         justify-content: center;
     }
@@ -98,16 +99,16 @@ const Skill = styled.li`
 const Desc = styled.div`
     font-size: 18px;
     color: #aaa;
-    margin-top: 20px;
+    margin-bottom: 20px;
     height: 50px;
     @media screen and (max-width: 1024px){
         font-size: 16px;
     }
 `
-const Education = styled.div`
-    margin-bottom: 20px;
+const Education = styled(Title)`
+    /* margin-bottom: 20px;
     h3{font-size: 36px; margin: 30px 0;}
-    p{margin-bottom: 10px;}
+    p{margin-bottom: 10px;} */
 `
 function About({myRef}) {
     

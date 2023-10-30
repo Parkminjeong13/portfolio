@@ -57,31 +57,7 @@ const GridItem = styled.div`
     aspect-ratio: 1 / 1;
     border: 1px solid #ddd;
 `
-const Circle = styled.div`
-    background-color: #fff;
-    box-shadow: 0 0 7px #fff, 0 0 10px #eee, 0 0 21px #fff;
-    border-radius: 50%;
-    width: 100px; height: 100px;
-    left: 80%; top: 80%;
-    position: absolute;
-    filter:blur(1.5px);
-    @media screen and (max-width: 1024px){
-        width: 70px; height: 70px;
-    }
-    @media screen and (max-width: 640px){
-        width: 40px; height: 40px;
-    }
-`
-const CircleBig = styled(Circle)`
-    width: 140px; height: 140px;
-    left: 0; top: 40%;
-    @media screen and (max-width: 1024px){
-        width: 100px; height: 100px;
-    }
-    @media screen and (max-width: 640px){
-        width: 50px; height: 50px;
-    }
-`
+
 function Manuscript({myRef}) {
 
     const rows = Array.from({length:10});
@@ -112,8 +88,8 @@ function Manuscript({myRef}) {
                         )
                     })
                 )}
-                <Circle />
-                <CircleBig />
+                {/* <Circle /> */}
+                {/* <CircleBig /> */}
             </GridContainer>
         </ContentWrap>
     </>
