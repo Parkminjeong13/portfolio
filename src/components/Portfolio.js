@@ -33,12 +33,12 @@ const Category = styled.div`
     &.on{
       background-color: #eee;
     }
+    @media screen and (max-width: 640px){
+        display: none;
+    }
 `
 const ListbtnWrap = styled.div`
-    /* width: 100%; */
     display: flex;
-    /* justify-content: flex-end; */
-    /* margin: 50px 0; */
     @media screen and (max-width: 640px){
         display: none;
     }
@@ -52,7 +52,6 @@ const Vertical = styled.div`
   align-items: center;
   padding: 10px;
   cursor: pointer; 
-  /* margin-top: 50px; */
   background: url("./images/vertical.png")center center no-repeat;
   &.on{
     background-color: #ddd;
@@ -63,7 +62,6 @@ const Horizontal = styled(Vertical)`
 `
 const CardWrap = styled.div`
     display: flex;
-    /* justify-content: space-between; */
     flex-wrap: wrap;
     gap: 2%;
 `
@@ -85,7 +83,6 @@ const Card = styled.div`
 `
 const ContentImg = styled.div`
   width: ${props => props.$isVertical ? '100%' : '50%'};
-  /* height: ${props => props.$isVertical ? '240px' : '100%'}; */
   aspect-ratio: 3 / 2;
   background-size: cover;
   background-position: center;
@@ -98,7 +95,6 @@ const ContentImg = styled.div`
   @media screen and (max-width: 640px){
       order: 1;
       width: 100%;
-      /* height: 200px; */
   }
 `
 const Desc = styled.div`
@@ -127,9 +123,9 @@ const BtnWrap = styled.div`
   display: flex;
   justify-content: center;
 `
-const View = styled.div`
+const View = styled.a`
   margin: 20px 10px;
-  padding: 10px 20px;
+  padding: 10px;
   background-color: #eee;
   border-radius: 5px;
 `
@@ -162,7 +158,7 @@ function Portfolio({myRef}) {
       "skill": "HTML, CSS, JavaScript, React",
       "contribution": "20%",
       "period": "30일",
-      "view": "https://github.com/the02196/hello_vanilla.git",
+      "view": "https://hello-vanilla.vercel.app",
       "git": "https://github.com/the02196/hello_vanilla.git",
       "type": "TeamProject"      
     },
@@ -173,7 +169,7 @@ function Portfolio({myRef}) {
       "skill": "HTML, CSS, JavaScript",
       "contribution": "100%",
       "period": "14일",
-      "view": "https://github.com/Parkminjeong13/megabox.git",
+      "view": "megabox-mu.vercel.app",
       "git": "https://github.com/Parkminjeong13/megabox.git",
       "type": "Clone"      
     },    
@@ -184,7 +180,7 @@ function Portfolio({myRef}) {
       "skill": "TypeScript, React",
       "contribution": "100%",
       "period": "2일",
-      "view": "https://github.com/Parkminjeong13/parcel.git",
+      "view": "parcel-mauve-eight.vercel.app",
       "git": "https://github.com/Parkminjeong13/parcel.git",
       "type": "ToyProject"       
     },
@@ -195,18 +191,18 @@ function Portfolio({myRef}) {
       "skill": "HTML, CSS, JavaScript",
       "contribution": "100%",
       "period": "5일",
-      "view": "https://github.com/Parkminjeong13/subway.git",
+      "view": "subway-navy.vercel.app",
       "git": "https://github.com/Parkminjeong13/subway.git",
       "type": "Clone"       
     },
     {
-      "img": "./images/subway.png",
+      "img": "./images/quiz.png",
       "title": "Quiz",
       "desc": "Quiz 페이지입니다.",
-      "skill": "HTML, CSS, JavaScript",
+      "skill": "HTML, CSS, JavaScript, React",
       "contribution": "100%",
       "period": "3일",
-      "view": "https://github.com/Parkminjeong13/quiz.git",
+      "view": "quiz-kappa-lilac.vercel.app",
       "git": "https://github.com/Parkminjeong13/quiz.git",
       "type": "ToyProject"       
     },
@@ -214,9 +210,9 @@ function Portfolio({myRef}) {
 
   const filteredData = data.filter((item) => {
     if (selected === 'All') {
-      return true; // All 카테고리가 선택되었을 때는 모든 데이터를 반환
+      return true;
     }
-    return item.type === selected; // 선택된 카테고리와 데이터의 타입이 일치하는 경우만 반환
+    return item.type === selected;
   });
   return (
     <>
@@ -230,7 +226,7 @@ function Portfolio({myRef}) {
             })}
           </CategoryWrap>
           <ListbtnWrap>
-            <Horizontal title={"가로"} className={!isVertical && 'on'} $isVertical={isVertical} onClick={() => { setIsVertical(false) }}>
+            <Horizontal title={"가로"} className={!isVertical && 'on'} $isVertical={isVertical} onClick={() => {setIsVertical(false)}}>
             </Horizontal>
             <Vertical title={"세로"} className={isVertical && 'on'} onClick={() => {setIsVertical(true)}}>
             </Vertical>
@@ -249,8 +245,8 @@ function Portfolio({myRef}) {
                     <p><span>기여도 : </span>{e.contribution}</p>
                     <p><span>스킬 : </span>{e.skill}</p>
                     <BtnWrap>
-                      <View>보러가기</View>
-                      <Git>GitHub</Git>
+                      <View href={e.view} target="_blank">보기</View>
+                      <Git href={e.git} target="_blank">GitHub</Git>
                     </BtnWrap>
                   </Desc>
                 </Card>

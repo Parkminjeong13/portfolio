@@ -14,33 +14,6 @@ const ContentWrap = styled.div`
         padding-left: 0;
     }
 `
-// const Icon = styled.div`
-//     background: url("./images/book.png")center center no-repeat;
-//     width: 100%; height: 100px;
-// `
-// const LogoBg = styled.div`
-//     background: url("./images/logo.png")center center no-repeat;
-//     width: 100%; height: 700px;
-//     margin: 0 auto;
-//     filter: blur(10px);
-// `
-// const LogoWrap = styled.div`
-//     display: grid;
-//     width: 10%;
-//     grid-template-columns: repeat(3, 1fr);
-//     border: 2px solid #d12e2e;
-//     padding: 10px 0;
-//     box-shadow: 0 0 0 1px #d12e2e;
-//     margin: 0 auto;
-// `
-// const Logo = styled.div`
-//     aspect-ratio: 1 / 1;
-//     box-shadow: 0 0 0 1px #d12e2e;
-//     font-size: 1.5vw;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-// `
 const Name = styled.div`    
     width: 75%;
     margin: 0 auto;
@@ -89,7 +62,6 @@ const GridContainer = styled.div`
 `
 const GridItem = styled.div`
     aspect-ratio: 1 / 1;
-    /* border: 1px solid #d12e2e; */
     box-shadow: 0 0 0 1px #d12e2e;
     font-size: 1.7vw;
     display: flex;

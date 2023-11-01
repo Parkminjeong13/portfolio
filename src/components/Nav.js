@@ -14,17 +14,6 @@ const NavBg = styled.div`
 `
 const ContentWrap = styled.ul``
 const Title = styled.li`
-    /* display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 50px;
-    padding: 10px;
-    margin-top: 20px;
-    border: 1px solid #eee;
-    background-color: ${props => props.$isActive ? '#fff' : '#eee'};
-    box-shadow: ${props => props.$isActive && '0 0 7px #fff, 0 0 10px #eee, 0 0 15px #eee'};
-    box-sizing: border-box; */
     width: 100px;
     height: 50px;
     padding: 10px;

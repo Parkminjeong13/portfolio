@@ -54,14 +54,6 @@ const Title = styled.div`
         font-size: 18px;
         margin-bottom: 15px;
     }
-    @media screen and (max-width: 1024px){
-        h3{
-            font-size: 30px;
-        }
-        p{
-            font-size: 18px;
-        }
-    }
 `
 const SkillWrap = styled.ul`
     display: flex;
@@ -76,7 +68,6 @@ const Skill = styled.li`
     aspect-ratio: 1 / 1;
     border: 1px solid #ddd;
     box-sizing: border-box;
-    /* margin-right: 10px; */
     margin-bottom: 10px;
     text-align: center;
     display: flex;
@@ -172,8 +163,8 @@ function About({myRef}) {
                 </Desc>
                 <Education>
                     <h3>Education</h3>
+                    <p>2023.06.29~2023.11.30</p>
                     <p>(혼합+디지털컨버전스) React를 활용한 프론트엔드 개발자 양성(SPA 프로젝트 개발) A</p>
-                    <span>2023.06.29~</span>
                 </Education>
             </DescWrap>
         </ContentWrap>
