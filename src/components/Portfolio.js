@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { data } from '../data/data'
 
 const BgWrap = styled.div`
     padding-left: 100px;
@@ -30,6 +31,7 @@ const Category = styled.div`
     border: 1px solid #ddd;
     padding: 10px;
     border-radius: 5px;
+    cursor: pointer;
     &.on{
       background-color: #eee;
     }
@@ -39,26 +41,26 @@ const Category = styled.div`
 `
 const ListbtnWrap = styled.div`
     display: flex;
+    margin: 50px 0;
     @media screen and (max-width: 640px){
         display: none;
     }
 `
-const Vertical = styled.div`
-  width: 35px;
-  height: 35px;
-  border: 1px solid #000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  cursor: pointer; 
-  background: url("./images/vertical.png")center center no-repeat;
-  &.on{
-    background-color: #ddd;
-  }
+const Horizontal = styled.div`
+    width: 30px;
+    height: 30px;
+    border: 1px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer; 
+    background: url("./images/list.png")center center no-repeat;
+    background-color: ${props => props.$isVertical ? "#ddd" : '#fff'};
 `
-const Horizontal = styled(Vertical)`
-  background: url("./images/list.png")center center no-repeat;
+const Vertical = styled(Horizontal)`
+    background: url("./images/vertical.png")center center no-repeat;
+    background-color: ${props => props.$isVertical ? "#ddd" : '#fff'};
 `
 const CardWrap = styled.div`
     display: flex;
@@ -82,7 +84,7 @@ const Card = styled.div`
     }
 `
 const ContentImg = styled.div`
-  width: ${props => props.$isVertical ? '100%' : '50%'};
+  width: ${props => props.$isVertical ? '100%' : '45%'};
   aspect-ratio: 3 / 2;
   background-size: cover;
   background-position: center;
@@ -99,9 +101,10 @@ const ContentImg = styled.div`
 `
 const Desc = styled.div`
   padding: ${props => props.$isVertical ? '30px' : '70px 50px'};
-  width: ${props => props.$isVertical ? '' : '45%'};;
+  width: ${props => props.$isVertical ? '' : '45%'};
   order: ${props => props.$isVertical ? '2' : (props.$index %2 ===0 ? '1' : '2')};
   margin: 20px auto;
+  position: relative;
   h3{margin-bottom: 30px;}
   p{
     margin-top: 15px;
@@ -128,6 +131,7 @@ const View = styled.a`
   padding: 10px;
   background-color: #eee;
   border-radius: 5px;
+  &:hover{background-color: #ddd;}
 `
 const Git = styled(View)``
 function Portfolio({myRef}) {
@@ -135,106 +139,33 @@ function Portfolio({myRef}) {
   const [isVertical, setIsVertical] = useState(true);
   const [selected, setSelected] = useState('All');
 
-  const category = [
-    {
-      "type": "All"
-    },
-    {
-      "type": "TeamProject"
-    },
-    {
-      "type": "Clone"
-    },
-    {
-      "type": "ToyProject"
-    },
-  ]
-  
-  const data = [
-    {
-      "img": "./images/teamprojectMain.png",
-      "title": "Hello Vanilla",
-      "desc": "초보 개발자들이 재미있고 간편하게 바닐라 스크립트를 학습할 수 있도록 지원하는 교육 커뮤니티 플랫폼 사이트입니다. 사용자들의 활발한 소통을 지원하고자 다양한 댓글 기능을 구현하였습니다.",
-      "skill": "HTML, CSS, JavaScript, React",
-      "contribution": "20%",
-      "period": "30일",
-      "view": "https://hello-vanilla.vercel.app",
-      "git": "https://github.com/the02196/hello_vanilla.git",
-      "type": "TeamProject"      
-    },
-    {
-      "img": "./images/megabox-main.png",
-      "title": "Megabox",
-      "desc": "Megabox 클론코딩 페이지입니다.",
-      "skill": "HTML, CSS, JavaScript",
-      "contribution": "100%",
-      "period": "14일",
-      "view": "megabox-mu.vercel.app",
-      "git": "https://github.com/Parkminjeong13/megabox.git",
-      "type": "Clone"      
-    },    
-    {
-      "img": "./images/parcel.png",
-      "title": "Parcel",
-      "desc": "택배 조회 페이지입니다. ",
-      "skill": "TypeScript, React",
-      "contribution": "100%",
-      "period": "2일",
-      "view": "parcel-mauve-eight.vercel.app",
-      "git": "https://github.com/Parkminjeong13/parcel.git",
-      "type": "ToyProject"       
-    },
-    {
-      "img": "./images/subway.png",
-      "title": "Subway",
-      "desc": "Subway 클론 코딩 페이지입니다.",
-      "skill": "HTML, CSS, JavaScript",
-      "contribution": "100%",
-      "period": "5일",
-      "view": "subway-navy.vercel.app",
-      "git": "https://github.com/Parkminjeong13/subway.git",
-      "type": "Clone"       
-    },
-    {
-      "img": "./images/quiz.png",
-      "title": "Quiz",
-      "desc": "Quiz 페이지입니다.",
-      "skill": "HTML, CSS, JavaScript, React",
-      "contribution": "100%",
-      "period": "3일",
-      "view": "quiz-kappa-lilac.vercel.app",
-      "git": "https://github.com/Parkminjeong13/quiz.git",
-      "type": "ToyProject"       
-    },
-  ]
+  const listType = ["All", "TeamProject", "Clone", "Webapp"]
 
-  const filteredData = data.filter((item) => {
-    if (selected === 'All') {
-      return true;
-    }
-    return item.type === selected;
-  });
+  const FilterData = data && data.filter(e =>{
+    return selected === "All" || selected === e.type
+  })
+  
   return (
     <>
       <BgWrap ref={myRef}>
         <TopBox>
           <CategoryWrap>
-            {category.map((e,i)=>{
+            {listType.map((e,i)=>{
               return (
-                <Category key={i} onClick={() => setSelected(e.type)} className={selected === e.type && 'on'}>{e.type}</Category>
+                <Category key={i} onClick={()=>setSelected(e)} className={selected === e && 'on'}>{e}</Category>
               )
             })}
           </CategoryWrap>
           <ListbtnWrap>
-            <Horizontal title={"가로"} className={!isVertical && 'on'} $isVertical={isVertical} onClick={() => {setIsVertical(false)}}>
+            <Horizontal title={"가로"} onClick={()=>{setIsVertical(false)}} $isVertical={!isVertical}>
             </Horizontal>
-            <Vertical title={"세로"} className={isVertical && 'on'} onClick={() => {setIsVertical(true)}}>
+            <Vertical title={"세로"} onClick={()=>{setIsVertical(true)}} $isVertical={isVertical}>
             </Vertical>
           </ListbtnWrap>
         </TopBox>
         <CardWrap >
           {
-            filteredData.map((e, i) => {
+            FilterData.map((e, i) => {
               return (
                 <Card key={i} $isVertical={isVertical}>
                   <ContentImg $index={i} $isVertical={isVertical} style={{backgroundImage: `url(${e.img})`}} />
@@ -245,7 +176,7 @@ function Portfolio({myRef}) {
                     <p><span>기여도 : </span>{e.contribution}</p>
                     <p><span>스킬 : </span>{e.skill}</p>
                     <BtnWrap>
-                      <View href={e.view} target="_blank">보기</View>
+                      <View href={e.view} target="_blank">view</View>
                       <Git href={e.git} target="_blank">GitHub</Git>
                     </BtnWrap>
                   </Desc>

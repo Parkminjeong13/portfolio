@@ -6,8 +6,11 @@ import Portfolio from "./components/Portfolio";
 import Footer from "./components/Footer";
 import { useRef } from "react";
 import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 
-const TopButton = styled.button`
+
+const TopButton = styled.div`
   position: fixed;
   right: 25px;
   bottom: 25px;
@@ -40,7 +43,7 @@ function App() {
       <About myRef={aboutRef}/>
       <Portfolio myRef={portfolioRef}/>
       <Footer myRef={contactRef}/>
-      <TopButton onClick={()=>moveTop()}>Top</TopButton>
+      <TopButton onClick={()=>moveTop()}><FontAwesomeIcon icon={faArrowUp}/></TopButton>
     </>
   );
 }
