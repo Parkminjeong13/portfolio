@@ -29,7 +29,7 @@ const Picture = styled.div`
         margin: 30px auto;
     }
     @media screen and (max-width: 640px){
-        flex-basis: 70%;
+        flex-basis: 60%;
     }
 `
 const DescWrap = styled.div`

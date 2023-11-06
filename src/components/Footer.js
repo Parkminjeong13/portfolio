@@ -5,7 +5,7 @@ const BgWrap = styled.div`
     padding-left: 100px;
     width: 90%;
     box-sizing: border-box;
-    margin: 50px auto;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -31,8 +31,10 @@ const TextWrap = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    margin-top: 50px;
 `
-const Text = styled.span`
+const Text = styled.div`
     font-size: 14px;
 `
 function Footer({myRef}) {
@@ -41,11 +43,11 @@ function Footer({myRef}) {
         <BgWrap>
             <Icon href={"https://github.com/Parkminjeong13"} target="_blank"></Icon>
             <Text>Github로 이동</Text>
+            <TextWrap ref={myRef}>
+                <Text>last update : 2023.11.06</Text>
+                <Text>ⓒ 2023. MinJeong All Rights Reserved.</Text>            
+            </TextWrap>
         </BgWrap>
-        <TextWrap ref={myRef}>
-            <Text>ⓒ 2023. MinJeong All Rights Reserved.</Text>
-            
-        </TextWrap>
     </>
   )
 }

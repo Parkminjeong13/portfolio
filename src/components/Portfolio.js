@@ -75,6 +75,8 @@ const Card = styled.div`
     text-align: center;
     margin-bottom: 50px;
     box-sizing: border-box;
+    position: ${props => props.$isVertical ? 'relative' : ''};
+    padding-bottom: ${props => props.$isVertical ? '50px' : ''};
     @media screen and (max-width: 1024px){
         flex-basis: ${props => props.$isVertical ? "48%" : '100%'};
     }
@@ -104,7 +106,7 @@ const Desc = styled.div`
   width: ${props => props.$isVertical ? '' : '45%'};
   order: ${props => props.$isVertical ? '2' : (props.$index %2 ===0 ? '1' : '2')};
   margin: 20px auto;
-  position: relative;
+  position: ${props => props.$isVertical ? '' : 'relative'};
   h3{margin-bottom: 30px;}
   p{
     margin-top: 15px;
@@ -125,6 +127,9 @@ const Desc = styled.div`
 const BtnWrap = styled.div`
   display: flex;
   justify-content: center;
+  position: ${props => props.$isVertical ? 'absolute' : ''};
+  bottom: 0; left: ${props => props.$isVertical ? '50%' : ''};
+  transform: ${props => props.$isVertical ? 'translateX(-50%)' : ''};
 `
 const View = styled.a`
   margin: 20px 10px;
@@ -175,7 +180,7 @@ function Portfolio({myRef}) {
                     <p><span>소요기간 : </span>{e.period}</p>
                     <p><span>기여도 : </span>{e.contribution}</p>
                     <p><span>스킬 : </span>{e.skill}</p>
-                    <BtnWrap>
+                    <BtnWrap $isVertical={isVertical}>
                       <View href={e.view} target="_blank">view</View>
                       <Git href={e.git} target="_blank">GitHub</Git>
                     </BtnWrap>
