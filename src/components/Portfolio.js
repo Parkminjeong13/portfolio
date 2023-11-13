@@ -121,7 +121,7 @@ const Desc = styled.div`
       order: 2;
       width: 80%;
       margin: 0 auto;
-      padding: 30px 30px;
+      padding: 30px;
   }
 `
 const BtnWrap = styled.div`

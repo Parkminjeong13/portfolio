@@ -60,13 +60,13 @@ const Title = styled.div`
 const SkillWrap = styled.ul`
     display: flex;
     flex-wrap: wrap;
-    gap: 5px;
+    gap: 1.5%;
     @media screen and (max-width: 640px){
         gap: 2%;
     }
 `
 const Skill = styled.li`
-    width: 55px; 
+    width: 60px; 
     aspect-ratio: 1 / 1;
     border: 1px solid #ddd;
     box-sizing: border-box;
@@ -78,18 +78,14 @@ const Skill = styled.li`
     align-items: center;
     cursor: pointer;
     div{
-        width: 32px; height: 32px;
+        width: 40px; height: 40px;
     }
-    span{font-size: 12px;}
+    span{font-size: 10px;}
     @media screen and (max-width: 1024px){
-        width: 60px; height: 60px;
         div{width: 35px; height: 35px;}
-        span{font-size: 13px;}
     }
     @media screen and (max-width: 640px){
-        width: 50px; height: 50px;
-        div{width: 30px; height: 30px;}
-        span{font-size: 10px;}
+        div{width: 32px; height: 32px;}
     }
 `
 const Desc = styled(Title)`

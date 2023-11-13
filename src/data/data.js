@@ -17,7 +17,7 @@ export const data = [
         "skill": "HTML, CSS, JavaScript, React",
         "contribution": "100%",
         "period": "14일",
-        "view": "portfolio-wine-sigma-42.vercel.app",
+        "view": "https://portfolio-wine-sigma-42.vercel.app",
         "git": "https://github.com/Parkminjeong13/portfolio",
         "type": "Webapp"
     },
