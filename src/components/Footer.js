@@ -18,15 +18,28 @@ const BgWrap = styled.div`
         padding-left: 0;
     }
 `
+const Title = styled.h3`
+    font-size: 32px;
+    margin-bottom: 50px;
+`
 const IconWrap = styled.div`
     display: flex;
+    flex-wrap: wrap;
+    @media screen and (max-width: 640px){
+        justify-content: center;
+    }
 `
-const Icon = styled.a`
+const Linkbox = styled.a`
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 50px;
+`
+const LinkIcon = styled.div`
     /* background: url("./images/icons/github.svg")center center no-repeat; */
     background-size: cover;
-    width: 70px;
-    height: 70px;
-    margin: 20px;
+    width: 120px;
+    height: 120px;
     cursor: pointer;
 `
 const TextWrap = styled.div`
@@ -38,18 +51,46 @@ const TextWrap = styled.div`
     flex-direction: column;
     margin-top: 50px;
 `
-const Text = styled.div`
-    font-size: 14px;
+const Text = styled.span`
+    font-size: 16px;
     margin-bottom: 10px;
 `
+const LinkText = styled(Text)`
+    font-size: 20px;
+`
 function Footer({myRef}) {
+    const list = [
+        {
+            "title" : "github",
+            "link" : "https://github.com/Parkminjeong13",
+            "img" : "./images/icons/github.svg"
+        },
+        {
+            "title" : "kakaotalk",
+            "link" : "https://open.kakao.com/o/snbfz9Rf",
+            "img" : "./images/icons/openchat.jpg"
+        },
+        {
+            "title" : "gmail",
+            "link" : "mailto:ming1320@gmail.com",
+            "img" : "./images/icons/gmail.svg"
+        },
+    ]
   return (
     <>
         <BgWrap>
+            <Title>Contact</Title>
             <IconWrap>
-                <Icon style={{ backgroundImage: `url(${"./images/icons/github.svg"})`}} href={"https://github.com/Parkminjeong13"} target="_blank" title='Github로 이동'></Icon>
-                <Icon style={{ backgroundImage: `url(${"./images/icons/kakaotalk.svg"})`}} href={""} target="_blank" title='카카오톡 연락하기'></Icon>
-                <Icon style={{ backgroundImage: `url(${"./images/icons/gmail.svg"})`}} href={"mailto:ming1320@gmail.com"} target="_blank" title='메일보내기'></Icon>                
+                {
+                    list.map((e,i)=>{
+                        return (
+                            <Linkbox key={i} href={e.link} target="_blank" title={e.title}>
+                                <LinkIcon style={{ backgroundImage: `url(${e.img})`}}></LinkIcon>
+                                <LinkText>{e.title}</LinkText>
+                            </Linkbox>
+                        )
+                    })
+                }
             </IconWrap>
             <TextWrap ref={myRef}>
                 <Text>last update : 2023.11.13</Text>

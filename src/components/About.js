@@ -2,13 +2,12 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { skill } from '../data/skilldata'
 
-
 const ContentWrap = styled.div`
     padding-left: 100px;
     box-sizing: border-box;
     display: flex;
     width: 90%;
-    margin: 150px auto;
+    margin: 300px auto;
     justify-content: space-between;
     flex-wrap: wrap;
     @media screen and (max-width: 1024px){
@@ -20,23 +19,24 @@ const ContentWrap = styled.div`
     }
 `
 const Picture = styled.div`
-    background: url("./images/sketch.png")center center no-repeat;
+    background: url("./images/portrait.jpg")center center no-repeat;
     background-size: contain;
-    flex-basis: 50%;
+    flex-basis: 35%;
+    /* aspect-ratio: 1 / 1; */
     @media screen and (max-width: 1024px){
         flex-basis : 70%;
-        height: 400px;
-        margin: 30px auto;
+        height: 360px;
+        margin: 0 auto;
     }
     @media screen and (max-width: 640px){
-        flex-basis: 60%;
+        flex-basis: 50%;
     }
 `
 const DescWrap = styled.div`
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    flex-basis: 50%;
+    flex-basis: 60%;
     margin: 0 auto;
     @media screen and (max-width: 1024px){
         flex-basis: 100%;
@@ -60,6 +60,7 @@ const Title = styled.div`
 const SkillWrap = styled.ul`
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
     gap: 1.5%;
     @media screen and (max-width: 640px){
         gap: 2%;
@@ -77,6 +78,7 @@ const Skill = styled.li`
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    color: ${props => props.$isActive ? "#fff" : '#000'};
     div{
         width: 40px; height: 40px;
     }
@@ -110,7 +112,7 @@ function About({myRef}) {
                 <SkillWrap>
                     {skill.map((e,i)=>{
                         return (                      
-                            <Skill key={i} onClick={()=>{setIsActive(i)}}>
+                            <Skill key={i} onClick={()=>{setIsActive(i)}} style={{background: isActive === i ? 'linear-gradient(to top, #FFD84B 20%, transparent 40%)' : '#fff'}}>
                                 <div style={{ backgroundImage: `url(${e.img})`, backgroundSize: 'cover' }}></div>
                                 <span>{e.title}</span>
                             </Skill> 
