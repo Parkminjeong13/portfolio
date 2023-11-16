@@ -26,6 +26,7 @@ const IconWrap = styled.div`
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 300px;
+    justify-content: center;
     @media screen and (max-width: 640px){
         justify-content: center;
         margin-bottom: 0;
