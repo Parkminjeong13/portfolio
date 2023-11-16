@@ -16,6 +16,7 @@ const ContentWrap = styled.div`
     @media screen and (max-width: 640px){
         width: 80%;
         padding-left: 0;
+        margin: 0 auto;
     }
 `
 const Picture = styled.div`
@@ -44,6 +45,7 @@ const DescWrap = styled.div`
     }
     @media screen and (max-width: 640px){
         text-align: center;
+        margin: 0 auto;
     }
 `
 const Title = styled.div`
@@ -112,7 +114,7 @@ function About({myRef}) {
                 <SkillWrap>
                     {skill.map((e,i)=>{
                         return (                      
-                            <Skill key={i} onClick={()=>{setIsActive(i)}} style={{background: isActive === i ? 'linear-gradient(to top, #FFD84B 20%, transparent 40%)' : '#fff'}}>
+                            <Skill key={i} onMouseOver={()=>{setIsActive(i)}} style={{background: isActive === i ? 'linear-gradient(to top, #FFD84B 20%, transparent 40%)' : '#fff'}}>
                                 <div style={{ backgroundImage: `url(${e.img})`, backgroundSize: 'cover' }}></div>
                                 <span>{e.title}</span>
                             </Skill> 
@@ -127,7 +129,7 @@ function About({myRef}) {
                 <Education>
                     <h3>Education</h3>
                     <p>2023.06.29~2023.11.30</p>
-                    <p>(혼합+디지털컨버전스) React를 활용한 프론트엔드 개발자 양성(SPA 프로젝트 개발) A</p>
+                    <p>(혼합+디지털컨버전스) React를 활용한 프론트엔드 개발자 양성(SPA 프로젝트 개발) A (900시간)</p>
                 </Education>
             </DescWrap>
         </ContentWrap>

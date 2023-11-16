@@ -13,6 +13,7 @@ const BgWrap = styled.div`
     @media screen and (max-width: 640px){
         width: 80%;
         padding-left: 0;
+        margin: 0 auto;
     }
 `
 const Title = styled.h3`
@@ -43,9 +44,10 @@ const Category = styled.div`
     transition: 0.2s;
     cursor: pointer;
     color: #fff;
+    &:hover{background: #808080;}
     &.on{
         box-shadow: 0px 1px 5px 2px #BFCEEF;
-        background-color: #DBC05B;
+        background-color: #E35252;
     }
     @media screen and (max-width: 640px){
         display: none;
@@ -145,26 +147,26 @@ const BtnWrap = styled.div`
 const View = styled.a`
     margin: 20px 10px;
     padding: 10px;
-    background-color: #eee;
+    /* background-color: #eee; */
     border-radius: 5px;
-    &:hover{background: #DBC05B;}
-    background: rgba(240,210,100,1);
-    background: -webkit-linear-gradient(rgba(240,210,100,1) 0%, rgba(229,201,96,1) 100%);
-    background: -moz-linear-gradient(rgba(240,210,100,1) 0%, rgba(229,201,96,1) 100%);
-    background: -o-linear-gradient(rgba(240,210,100,1) 0%, rgba(229,201,96,1) 100%);
-    background: linear-gradient(rgba(240,210,100,1) 0%, rgba(229,201,96,1) 100%);
-    box-shadow:0px 4px 0px #D1B757;
+    &:hover{background: #D33434;}
+    background: rgba(211,52,52,1);
+    background: -webkit-linear-gradient(rgba(211,52,52,1) 0%, rgba(200,48,48,1) 100%);
+    background: -moz-linear-gradient(rgba(211,52,52,1) 0%, rgba(200,48,48,1) 100%);
+    background: -o-linear-gradient(rgba(211,52,52,1) 0%, rgba(200,48,48,1) 100%);
+    background: linear-gradient(rgba(211,52,52,1) 0%, rgba(200,48,48,1) 100%);
+    box-shadow:0px 4px 0px #C83030;
     color: #fff;
 `
 const Git = styled(View)`
-    &:hover{background: #72B08E;}
-    background: rgba(130,200,160,1);
-    background: -moz-linear-gradient(top, rgba(130,200,160,1) 0%, rgba(130,199,158,1) 100%);    
-    background: -webkit-linear-gradient(top, rgba(130,200,160,1) 0%, rgba(130,199,158,1) 100%);
-    background: -o-linear-gradient(top, rgba(130,200,160,1) 0%, rgba(130,199,158,1) 100%);
-    background: -ms-linear-gradient(top, rgba(130,200,160,1) 0%, rgba(130,199,158,1) 100%);
-    background: linear-gradient(to bottom, rgba(130,200,160,1) 0%, rgba(124, 185, 149, 1) 100%);
-    box-shadow: 0px 4px 0px #87a86f;
+    &:hover{background: #808080;}
+    background: rgba(128,128,128,1);
+    background: -webkit-linear-gradient(rgba(128,128,128,1) 0%, rgba(105,105,105,1) 100%);
+    background: -moz-linear-gradient(rgba(128,128,128,1) 0%, rgba(105,105,105,1) 100%);
+    background: -o-linear-gradient(rgba(128,128,128,1) 0%, rgba(105,105,105,1) 100%);
+    background: linear-gradient(rgba(128,128,128,1) 0%, rgba(105,105,105,1) 100%);
+    box-shadow:0px 4px 0px #696969;
+    color: #fff;
 `
 function Portfolio({myRef}) {
 
