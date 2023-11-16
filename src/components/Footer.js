@@ -93,7 +93,7 @@ function Footer({myRef}) {
                 }
             </IconWrap>
             <TextWrap ref={myRef}>
-                <Text>last update : 2023.11.13</Text>
+                <Text>last update : 2023.11.16</Text>
                 <Text>ⓒ 2023. MinJeong All Rights Reserved.</Text>            
             </TextWrap>
         </BgWrap>
