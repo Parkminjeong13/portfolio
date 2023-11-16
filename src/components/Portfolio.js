@@ -205,7 +205,7 @@ function Portfolio({myRef}) {
                                     <Desc $index={i} $isVertical={isVertical}>
                                         <h3>{e.title}</h3>
                                         <p>{e.desc}</p>
-                                        <p><span>소요기간 : </span>{e.period}</p>
+                                        <p><span>소요기간 : </span>{e.time}</p>
                                         <p><span>기여도 : </span>{e.contribution}</p>
                                         <p><span>스킬 : </span>{e.skill}</p>
                                         <BtnWrap $isVertical={isVertical}>

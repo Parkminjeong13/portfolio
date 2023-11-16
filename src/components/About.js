@@ -7,7 +7,7 @@ const ContentWrap = styled.div`
     box-sizing: border-box;
     display: flex;
     width: 90%;
-    margin: 300px auto;
+    margin: 200px auto;
     justify-content: space-between;
     flex-wrap: wrap;
     @media screen and (max-width: 1024px){
