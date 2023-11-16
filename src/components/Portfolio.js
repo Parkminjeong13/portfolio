@@ -6,7 +6,7 @@ const BgWrap = styled.div`
     padding-left: 100px;
     width: 90%;
     box-sizing: border-box;
-    margin: 150px auto;
+    margin: 200px auto;
     @media screen and (max-width: 1024px){
         width: 95%;
     }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
 const NavBg = styled.div`
@@ -30,9 +30,14 @@ const Title = styled.li`
 `
 function Nav({navRefs}) {
     
-    const [isActive, setIsActive] = useState(-1);
+    const [activeIndex, setActiveIndex] = useState(-1);
+    const [isClickEvent, setIsClickEvent] = useState(false);
 
     const nav = [
+        // {
+        //     "title": "Home",
+        //     "ref": navRefs.home
+        // },
         {
             "title": "About",
             "ref": navRefs.about
@@ -46,6 +51,40 @@ function Nav({navRefs}) {
             "ref": navRefs.contact
         },
     ]
+    useEffect(() => {
+        const handleScroll = () => {
+          if (isClickEvent) return;
+    
+          const scrollTop = window.scrollY;
+          const windowHeight = window.innerHeight;
+          const docHeight = document.body.offsetHeight;
+    
+          if (docHeight - windowHeight <= scrollTop) {
+            setActiveIndex(nav.length - 1);
+          } else {
+            nav.forEach((navItem, i) => {
+              const elementTop = navItem.ref.current.offsetTop;
+              const elementBottom = elementTop + navItem.ref.current.offsetHeight;
+              if (scrollTop >= elementTop && scrollTop < elementBottom) {
+                setActiveIndex(i);
+              }
+            });
+          }
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+      }, [nav, isClickEvent]);
+    
+      const handleClick = (index, ref) => {
+        setIsClickEvent(true);
+        setActiveIndex(index);
+        window.scrollTo({ 
+          top: ref.current.offsetTop, 
+          behavior: 'smooth', 
+          block: 'start'
+        });
+        new Promise((resolve) => setTimeout(resolve, 1000)).then(() => setIsClickEvent(false));
+      }
   return (
     <>
         <NavBg>
@@ -53,7 +92,7 @@ function Nav({navRefs}) {
                 {
                     nav.map((e,i)=>{
                         return (
-                            <Title key={i} $isActive={isActive === i} onClick={()=>{setIsActive(i); e.ref.current.scrollIntoView({ behavior: 'smooth' }); }}>
+                            <Title key={i} $isActive={activeIndex === i} onClick={() => handleClick(i, e.ref)}>
                                 <p>{e.title}</p>
                             </Title>
                         )

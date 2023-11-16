@@ -25,8 +25,10 @@ const Title = styled.h3`
 const IconWrap = styled.div`
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 300px;
     @media screen and (max-width: 640px){
         justify-content: center;
+        margin-bottom: 0;
     }
 `
 const Linkbox = styled.a`
@@ -49,7 +51,7 @@ const TextWrap = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin-top: 50px;
+    margin: 30px;
 `
 const Text = styled.span`
     font-size: 16px;
