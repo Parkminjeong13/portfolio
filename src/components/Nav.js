@@ -63,7 +63,7 @@ function Nav({navRefs}) {
             setActiveIndex(nav.length - 1);
           } else {
             nav.forEach((navItem, i) => {
-              const elementTop = navItem.ref.current.offsetTop;
+              const elementTop = navItem.ref.current.offsetTop - 100;
               const elementBottom = elementTop + navItem.ref.current.offsetHeight;
               if (scrollTop >= elementTop && scrollTop < elementBottom) {
                 setActiveIndex(i);
