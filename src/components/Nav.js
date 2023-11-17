@@ -62,18 +62,23 @@ function Nav({navRefs}) {
           if (docHeight - windowHeight <= scrollTop) {
             setActiveIndex(nav.length - 1);
           } else {
-            nav.forEach((navItem, i) => {
-              const elementTop = navItem.ref.current.offsetTop - 100;
-              const elementBottom = elementTop + navItem.ref.current.offsetHeight;
-              if (scrollTop >= elementTop && scrollTop < elementBottom) {
-                setActiveIndex(i);
-              }
-            });
+            const aboutTop = navRefs.about.current.offsetTop - 100;
+            if (scrollTop < aboutTop) {
+              setActiveIndex(-1); 
+            }else{              
+              nav.forEach((navItem, i) => {
+                const elementTop = navItem.ref.current.offsetTop - 100;
+                const elementBottom = elementTop + navItem.ref.current.offsetHeight;
+                if (scrollTop >= elementTop && scrollTop < elementBottom) {
+                  setActiveIndex(i);
+                }
+              });
+            }
           }
         };
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
-      }, [nav, isClickEvent]);
+      }, [nav, isClickEvent, navRefs.about, navRefs.home]);
     
       const handleClick = (index, ref) => {
         setIsClickEvent(true);
