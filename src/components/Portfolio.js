@@ -70,7 +70,7 @@ const ListbtnWrap = styled.div`
     margin: 50px 0;
     transform: translateX(0);
     @media screen and (max-width: 767px){
-        transform: translateX(600px);
+        transform: translateX(-700px);
         margin: 0;
     }
 `
