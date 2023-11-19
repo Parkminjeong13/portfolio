@@ -13,13 +13,13 @@ const BgWrap = styled.div`
     @media screen and (max-width: 1024px){
         width: 95%;
     }
-    @media screen and (max-width: 640px){
+    @media screen and (max-width: 767px){
         width: 80%;
         padding-left: 0;
     }
 `
 const Title = styled.h3`
-    font-size: 32px;
+    font-size: 36px;
     margin-bottom: 50px;
 `
 const IconWrap = styled.div`
@@ -27,7 +27,7 @@ const IconWrap = styled.div`
     flex-wrap: wrap;
     margin-bottom: 300px;
     justify-content: center;
-    @media screen and (max-width: 640px){
+    @media screen and (max-width: 767px){
         justify-content: center;
         margin-bottom: 0;
     }
@@ -96,7 +96,7 @@ function Footer({myRef}) {
                 }
             </IconWrap>
             <TextWrap ref={myRef}>
-                <Text>last update : 2023.11.16</Text>
+                <Text>Last Update : 2023.11.19</Text>
                 <Text>ⓒ 2023. MinJeong All Rights Reserved.</Text>            
             </TextWrap>
         </BgWrap>

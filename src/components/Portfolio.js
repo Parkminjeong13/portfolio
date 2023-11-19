@@ -10,14 +10,14 @@ const BgWrap = styled.div`
     @media screen and (max-width: 1024px){
         width: 95%;
     }
-    @media screen and (max-width: 640px){
+    @media screen and (max-width: 767px){
         width: 80%;
         padding-left: 0;
         margin: 0 auto;
     }
 `
 const Title = styled.h3`
-    font-size: 32px;
+    font-size: 36px;
     text-align: center;
     padding-top: 50px;
 `
@@ -27,11 +27,15 @@ const TopBox = styled.div`
     justify-content: space-between;
     align-items: center;
     margin: 50px 0;
+    flex-wrap: wrap;
+    @media screen and (max-width: 767px){
+        margin: 0;
+    }
 `
 const CategoryWrap = styled.div`
     display: flex;
-    justify-content: space-between;
-    gap: 3%;
+    /* justify-content: space-between; */
+    /* margin-right: 3%; */
 `
 const Category = styled.div`
     border: 1px solid #ddd;
@@ -41,23 +45,33 @@ const Category = styled.div`
     background: #888;
     text-align: center;
     z-index: 10;
-    transition: 0.2s;
+    /* transition: 0.3s; */
     cursor: pointer;
     color: #fff;
+    flex-shrink: 0;
+    font-size: 20px;
+    margin-right: 15px;
+    transform: translateX(0);
     &:hover{background: #808080;}
     &.on{
         box-shadow: 0px 1px 5px 2px #BFCEEF;
         background-color: #E35252;
     }
-    @media screen and (max-width: 640px){
-        display: none;
+    @media screen and (max-width: 1024px){
+        font-size: 16px;
+        margin-right: 10px;
+    }
+    @media screen and (max-width: 767px){
+        transform: translateX(-600px);
     }
 `
 const ListbtnWrap = styled.div`
     display: flex;
     margin: 50px 0;
-    @media screen and (max-width: 640px){
-        display: none;
+    transform: translateX(0);
+    @media screen and (max-width: 767px){
+        transform: translateX(600px);
+        margin: 0;
     }
 `
 const Horizontal = styled.div`
@@ -95,7 +109,7 @@ const Card = styled.div`
     @media screen and (max-width: 1024px){
         flex-basis: ${props => props.$isVertical ? "48%" : '100%'};
     }
-    @media screen and (max-width: 640px){
+    @media screen and (max-width: 767px){
         flex-direction: column;
         flex-basis: 100%
     }
@@ -108,7 +122,7 @@ const ContentImg = styled.div`
     background-repeat: no-repeat;
     order: ${props => props.$isVertical ? '1' : (props.$index % 2 === 0 ? '2' : '1')};
     cursor: pointer;
-    @media screen and (max-width: 640px){
+    @media screen and (max-width: 767px){
         order: 1;
         width: 100%;
     }
@@ -119,7 +133,10 @@ const Desc = styled.div`
     order: ${props => props.$isVertical ? '2' : (props.$index %2 ===0 ? '1' : '2')};
     margin: 20px auto;
     position: ${props => props.$isVertical ? '' : 'relative'};
-    h3{margin-bottom: 30px;}
+    h3{
+        font-size: 32px;
+        margin-bottom: 30px;
+    }
     p{
         margin-top: 15px;
         span{
@@ -129,7 +146,7 @@ const Desc = styled.div`
     @media screen and (max-width: 1024px){
         padding: ${props => props.$isVertical ? '30px' : '25px'};
     }
-    @media screen and (max-width: 640px){
+    @media screen and (max-width: 767px){
         order: 2;
         width: 80%;
         margin: 0 auto;
@@ -178,6 +195,12 @@ function Portfolio({myRef}) {
   const FilterData = data && data.filter(e =>{
     return selected === "All" || selected === e.type
   })
+
+  const countType = listType.map((type, i) => {
+    let filtered;
+    type === 'All' ? filtered = data : filtered = data.filter(e => e.type === type)
+    return `${type} : ${filtered.length}`;
+  });
   
     return (
         <>
@@ -187,7 +210,7 @@ function Portfolio({myRef}) {
                     <CategoryWrap>
                         {listType.map((e, i) => {
                             return (
-                                <Category key={i} onClick={() => setSelected(e)} className={selected === e && 'on'}>{e}</Category>
+                                <Category key={i} onClick={() => setSelected(e)} className={selected === e && 'on'}> {countType[i]}</Category>
                             )
                         })}
                     </CategoryWrap>

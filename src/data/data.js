@@ -4,7 +4,7 @@ export const data = [
         "title": "Today's Luck",
         "desc": "운세보기 페이지입니다. API를 이용해서 필요한 데이터를 불러옵니다. 사용자가 정보를 입력하면 오늘의 운세를 확인할 수 있습니다.",
         "skill": "Tailwindcss, TypeScript, Next.js",
-        "contribution": "20%",
+        "contribution": "100%",
         "time": "2일",
         "view": "https://lucky-tau.vercel.app",
         "git": "https://github.com/Parkminjeong13/lucky.git",

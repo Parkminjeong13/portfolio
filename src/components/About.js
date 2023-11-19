@@ -13,7 +13,7 @@ const ContentWrap = styled.div`
     @media screen and (max-width: 1024px){
         width: 95%;
     }
-    @media screen and (max-width: 640px){
+    @media screen and (max-width: 767px){
         width: 80%;
         padding-left: 0;
         margin: 0 auto;
@@ -29,7 +29,7 @@ const Picture = styled.div`
         height: 360px;
         margin: 0 auto;
     }
-    @media screen and (max-width: 640px){
+    @media screen and (max-width: 767px){
         flex-basis: 50%;
     }
 `
@@ -43,7 +43,7 @@ const DescWrap = styled.div`
         flex-basis: 100%;
         margin: 50px auto;
     }
-    @media screen and (max-width: 640px){
+    @media screen and (max-width: 767px){
         text-align: center;
         margin: 0 auto;
     }
@@ -51,7 +51,7 @@ const DescWrap = styled.div`
 const Title = styled.div`
     margin: 70px 0 20px;
     h3{
-        font-size: 32px;
+        font-size: 36px;
         margin-bottom: 15px;
     }
     p{
@@ -64,7 +64,7 @@ const SkillWrap = styled.ul`
     flex-wrap: wrap;
     width: 100%;
     gap: 1.5%;
-    @media screen and (max-width: 640px){
+    @media screen and (max-width: 767px){
         gap: 2%;
     }
 `
@@ -88,7 +88,7 @@ const Skill = styled.li`
     @media screen and (max-width: 1024px){
         div{width: 35px; height: 35px;}
     }
-    @media screen and (max-width: 640px){
+    @media screen and (max-width: 767px){
         div{width: 32px; height: 32px;}
     }
 `

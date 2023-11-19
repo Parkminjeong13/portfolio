@@ -9,7 +9,7 @@ const ContentWrap = styled.div`
     @media screen and (max-width: 1024px){
         width: 95%;
     }
-    @media screen and (max-width: 640px){
+    @media screen and (max-width: 767px){
         width: 80%;
         padding-left: 0;
     }
@@ -31,7 +31,7 @@ const Name = styled.div`
             width: 15%;
         }
     }
-    @media screen and (max-width: 640px){
+    @media screen and (max-width: 767px){
         width: 90%;
         span{
             font-size: 16px;
@@ -55,7 +55,7 @@ const GridContainer = styled.div`
         grid-template-columns: repeat(15, 1fr);
         overflow: hidden;
     }
-    @media screen and (max-width: 640px){
+    @media screen and (max-width: 767px){
         width: 90%;
         grid-template-columns: repeat(10, 1fr);
     }
@@ -73,7 +73,7 @@ const GridItem = styled.div`
             display: none;
         }
     }
-    @media screen and (max-width: 640px){
+    @media screen and (max-width: 767px){
         font-size: 4vw;
         &:nth-child(n+101){
             display: none;

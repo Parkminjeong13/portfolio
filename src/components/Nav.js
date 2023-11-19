@@ -8,8 +8,9 @@ const NavBg = styled.div`
     position: fixed;
     z-index: 100;
     top: 0;
-    @media screen and (max-width: 640px){
-        display: none;
+    transform: translateX(0);
+    @media screen and (max-width: 767px){
+        transform: translateX(-200px);
     }
 `
 const ContentWrap = styled.ul``
