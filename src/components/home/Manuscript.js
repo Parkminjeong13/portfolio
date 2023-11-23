@@ -63,7 +63,7 @@ const GridContainer = styled.div`
 const GridItem = styled.div`
     aspect-ratio: 1 / 1;
     box-shadow: 0 0 0 1px #d12e2e;
-    font-size: 1.7vw;
+    font-size: 2vw;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -26,7 +26,7 @@ const Title = styled.li`
     cursor: pointer;
     p{
         display: inline-block;
-        background: ${props => props.$isActive ? 'linear-gradient(to top, #FFD84B 40%, transparent 40%);' : '#fff'};
+        background: ${props => props.$isActive ? 'linear-gradient(to top, #FFD84B 40%, transparent 40%)' : '#fff'};
     }
 `
 function Nav({navRefs}) {
@@ -54,43 +54,41 @@ function Nav({navRefs}) {
     ]
     useEffect(() => {
         const handleScroll = () => {
-          if (isClickEvent) return;
-    
-          const scrollTop = window.scrollY;
-          const windowHeight = window.innerHeight;
-          const docHeight = document.body.offsetHeight;
-    
-          if (docHeight - windowHeight <= scrollTop) {
-            setActiveIndex(nav.length - 1);
-          } else {
-            const aboutTop = navRefs.about.current.offsetTop - 100;
-            if (scrollTop < aboutTop) {
-              setActiveIndex(-1); 
-            }else{              
-              nav.forEach((navItem, i) => {
-                const elementTop = navItem.ref.current.offsetTop - 100;
-                const elementBottom = elementTop + navItem.ref.current.offsetHeight;
-                if (scrollTop >= elementTop && scrollTop < elementBottom) {
-                  setActiveIndex(i);
+            if (isClickEvent) return;
+            const scrollTop = window.scrollY;
+            const windowHeight = window.innerHeight;
+            const docHeight = document.body.offsetHeight;
+            if (docHeight - windowHeight <= scrollTop) {
+                setActiveIndex(nav.length - 1);
+            } else {
+                const aboutTop = navRefs.about.current.offsetTop - 100;
+                if (scrollTop < aboutTop) {
+                    setActiveIndex(-1);
+                } else {
+                    nav.forEach((navItem, i) => {
+                        const elementTop = navItem.ref.current.offsetTop - 100;
+                        const elementBottom = elementTop + navItem.ref.current.offsetHeight;
+                        if (scrollTop >= elementTop && scrollTop < elementBottom) {
+                            setActiveIndex(i);
+                        }
+                    });
                 }
-              });
             }
-          }
         };
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
-      }, [nav, isClickEvent, navRefs.about, navRefs.home]);
+    }, [nav, isClickEvent, navRefs.about, navRefs.home]);
     
-      const handleClick = (index, ref) => {
+    const handleClick = (index, ref) => {
         setIsClickEvent(true);
         setActiveIndex(index);
-        window.scrollTo({ 
-          top: ref.current.offsetTop, 
-          behavior: 'smooth', 
-          block: 'start'
+        window.scrollTo({
+            top: ref.current.offsetTop,
+            behavior: 'smooth',
+            block: 'start'
         });
         new Promise((resolve) => setTimeout(resolve, 1000)).then(() => setIsClickEvent(false));
-      }
+    }
   return (
     <>
         <NavBg>

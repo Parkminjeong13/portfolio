@@ -20,6 +20,7 @@ const TopButton = styled.div`
   background-color: #fff;
   border: 1px solid #ddd;
   cursor: pointer;
+  &:hover{background-color: #eee}
 `;
 
 

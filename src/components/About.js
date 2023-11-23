@@ -22,11 +22,11 @@ const ContentWrap = styled.div`
 const Picture = styled.div`
     background: url("./images/portrait.jpg")center center no-repeat;
     background-size: contain;
-    flex-basis: 35%;
-    /* aspect-ratio: 1 / 1; */
+    flex-basis: 30%;
+    aspect-ratio: 1 / 1;
     @media screen and (max-width: 1024px){
-        flex-basis : 70%;
-        height: 360px;
+        flex-basis : 50%;
+        /* height: 360px; */
         margin: 0 auto;
     }
     @media screen and (max-width: 767px){
@@ -96,6 +96,9 @@ const Desc = styled(Title)`
     color: #aaa;
     height: 40px;
     margin: 15px 0;
+    @media screen and (max-width: 767px){
+        height: 70px;
+    }
 `
 const Education = styled(Title)``
 function About({myRef}) {

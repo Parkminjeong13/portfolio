@@ -20,6 +20,9 @@ const Title = styled.h3`
     font-size: 36px;
     text-align: center;
     padding-top: 50px;
+    @media screen and (max-width: 767px){
+        padding-top: 100px;
+    }
 `
 const TopBox = styled.div`
     display: flex;
@@ -28,8 +31,10 @@ const TopBox = styled.div`
     align-items: center;
     margin: 50px 0;
     flex-wrap: wrap;
+    transform: translateX(0);
     @media screen and (max-width: 767px){
         margin: 0;
+        transform: translateX(-1000px);
     }
 `
 const CategoryWrap = styled.div`
@@ -49,28 +54,22 @@ const Category = styled.div`
     cursor: pointer;
     color: #fff;
     flex-shrink: 0;
-    font-size: 20px;
+    font-size: 16px;
     margin-right: 15px;
-    transform: translateX(0);
     &:hover{background: #808080;}
     &.on{
         box-shadow: 0px 1px 5px 2px #BFCEEF;
         background-color: #E35252;
     }
     @media screen and (max-width: 1024px){
-        font-size: 16px;
+        font-size: 14px;
         margin-right: 10px;
-    }
-    @media screen and (max-width: 767px){
-        transform: translateX(-600px);
     }
 `
 const ListbtnWrap = styled.div`
     display: flex;
     margin: 50px 0;
-    transform: translateX(0);
     @media screen and (max-width: 767px){
-        transform: translateX(-700px);
         margin: 0;
     }
 `
@@ -86,6 +85,10 @@ const Horizontal = styled.div`
     background: url("./images/list.png")center center no-repeat;
     background-color: ${props => props.$isVertical ? "#eee" : '#fff'};
     box-shadow: 0px 1px 5px 2px #ddd;
+    @media screen and (max-width: 1024px){
+        width: 30px;
+        height: 30px;
+    }
 `
 const Vertical = styled(Horizontal)`
     background: url("./images/vertical.png")center center no-repeat;
@@ -151,6 +154,9 @@ const Desc = styled.div`
         width: 80%;
         margin: 0 auto;
         padding: 30px;
+        h3{
+            font-size: 24px;
+        }
     }
 `
 const BtnWrap = styled.div`
