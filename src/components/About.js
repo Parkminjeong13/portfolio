@@ -112,7 +112,7 @@ function About({myRef}) {
             <DescWrap>
                 <Title>
                     <h3>About</h3>
-                    <p>"언어를 사랑하는 개발자 박민정입니다."</p>
+                    <p>"언어를 사랑하는 프론트엔드 개발자 박민정입니다."</p>
                 </Title>
                 <SkillWrap>
                     {skill.map((e,i)=>{
